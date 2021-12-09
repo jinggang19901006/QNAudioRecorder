@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0CB3002761ACA800C6A4F0 /* QNAudioRecorder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CB2FE2761ACA800C6A4F0 /* QNAudioRecorder.mm */; };
+		2C0CB3012761ACA800C6A4F0 /* QNAudioRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0CB2FF2761ACA800C6A4F0 /* QNAudioRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2C5C39A9276051570004904D /* QNAudioRecorder_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5C399F276051570004904D /* QNAudioRecorder_macOS.framework */; };
 		2C5C39AE276051570004904D /* QNAudioRecorderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C39AD276051570004904D /* QNAudioRecorderTests.m */; };
 		2C5C39B0276051570004904D /* QNAudioRecorder_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5C39A2276051570004904D /* QNAudioRecorder_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2C5C39BD2760517F0004904D /* QNAudioRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5C39BB2760517F0004904D /* QNAudioRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2C5C39BE2760517F0004904D /* QNAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C39BC2760517F0004904D /* QNAudioRecorder.m */; };
+		2C5C39BD2760517F0004904D /* QNAudioRecorderObjc.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5C39BB2760517F0004904D /* QNAudioRecorderObjc.h */; };
+		2C5C39BE2760517F0004904D /* QNAudioRecorderObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C39BC2760517F0004904D /* QNAudioRecorderObjc.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,14 +27,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C0CB2FE2761ACA800C6A4F0 /* QNAudioRecorder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = QNAudioRecorder.mm; sourceTree = "<group>"; };
+		2C0CB2FF2761ACA800C6A4F0 /* QNAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNAudioRecorder.h; sourceTree = "<group>"; };
 		2C5C399F276051570004904D /* QNAudioRecorder_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QNAudioRecorder_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C5C39A2276051570004904D /* QNAudioRecorder_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudioRecorder_macOS.h; sourceTree = "<group>"; };
 		2C5C39A3276051570004904D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C5C39A8276051570004904D /* QNAudioRecorder_macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QNAudioRecorder_macOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C5C39AD276051570004904D /* QNAudioRecorderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudioRecorderTests.m; sourceTree = "<group>"; };
 		2C5C39AF276051570004904D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2C5C39BB2760517F0004904D /* QNAudioRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudioRecorder.h; sourceTree = "<group>"; };
-		2C5C39BC2760517F0004904D /* QNAudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudioRecorder.m; sourceTree = "<group>"; };
+		2C5C39BB2760517F0004904D /* QNAudioRecorderObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAudioRecorderObjc.h; sourceTree = "<group>"; };
+		2C5C39BC2760517F0004904D /* QNAudioRecorderObjc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAudioRecorderObjc.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +80,10 @@
 			isa = PBXGroup;
 			children = (
 				2C5C39A2276051570004904D /* QNAudioRecorder_macOS.h */,
-				2C5C39BB2760517F0004904D /* QNAudioRecorder.h */,
-				2C5C39BC2760517F0004904D /* QNAudioRecorder.m */,
+				2C5C39BB2760517F0004904D /* QNAudioRecorderObjc.h */,
+				2C5C39BC2760517F0004904D /* QNAudioRecorderObjc.m */,
+				2C0CB2FF2761ACA800C6A4F0 /* QNAudioRecorder.h */,
+				2C0CB2FE2761ACA800C6A4F0 /* QNAudioRecorder.mm */,
 				2C5C39A3276051570004904D /* Info.plist */,
 			);
 			path = QNAudioRecorder_macOS;
@@ -99,7 +105,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C5C39BD2760517F0004904D /* QNAudioRecorder.h in Headers */,
+				2C0CB3012761ACA800C6A4F0 /* QNAudioRecorder.h in Headers */,
+				2C5C39BD2760517F0004904D /* QNAudioRecorderObjc.h in Headers */,
 				2C5C39B0276051570004904D /* QNAudioRecorder_macOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,7 +207,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C5C39BE2760517F0004904D /* QNAudioRecorder.m in Sources */,
+				2C5C39BE2760517F0004904D /* QNAudioRecorderObjc.m in Sources */,
+				2C0CB3002761ACA800C6A4F0 /* QNAudioRecorder.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

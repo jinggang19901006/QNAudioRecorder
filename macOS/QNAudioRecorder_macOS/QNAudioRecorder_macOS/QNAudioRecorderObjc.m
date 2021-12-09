@@ -1,11 +1,11 @@
 //
-//  QNAudioRecorder.m
-//  QNAudioRecorder
+//  QNAudioRecorderObjc.m
+//  QNAudioRecorderObjc
 //
 //  Created by tony.jing on 2021/12/8.
 //
 
-#import "QNAudioRecorder.h"
+#import "QNAudioRecorderObjc.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
@@ -17,7 +17,7 @@ static inline void run_on_main_queue(void (^block)(void)) {
     dispatch_async(dispatch_get_main_queue(), block);
 }
 
-@interface QNAudioRecorder()
+@interface QNAudioRecorderObjc()
 @property (nonatomic, assign) AudioComponentInstance componentInstance;
 @property (nonatomic, assign) AudioStreamBasicDescription asbd;
 @property (nonatomic, strong) dispatch_source_t timer;
@@ -25,18 +25,18 @@ static inline void run_on_main_queue(void (^block)(void)) {
 
 @end
 
-@implementation QNAudioRecorder
+@implementation QNAudioRecorderObjc
 {
     AudioBufferList *bufferList;
 }
 
-static QNAudioRecorder *_sharedInstance;
+static QNAudioRecorderObjc *_sharedInstance;
 
 #pragma mark - public
-+(QNAudioRecorder*) start{
++(QNAudioRecorderObjc*) start{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedInstance = [[QNAudioRecorder alloc] init];
+        _sharedInstance = [[QNAudioRecorderObjc alloc] init];
     });
     [_sharedInstance startTimer];
     OSStatus status = AudioOutputUnitStart(_sharedInstance.componentInstance);
@@ -135,7 +135,7 @@ static OSStatus RecordCallback(void *inRefCon,
                                UInt32 inNumberFrames,
                                AudioBufferList *ioData){
     
-    QNAudioRecorder *audioRecorder = (__bridge QNAudioRecorder*)inRefCon;
+    QNAudioRecorderObjc *audioRecorder = (__bridge QNAudioRecorderObjc*)inRefCon;
     AudioBuffer buffer;
     buffer.mDataByteSize = inNumberFrames * 2;
     buffer.mData = malloc(buffer.mDataByteSize);

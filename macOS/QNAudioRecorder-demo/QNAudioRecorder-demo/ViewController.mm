@@ -9,7 +9,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <QNAudioRecorder_macOS/QNAudioRecorder.h>
 
-@interface ViewController()<QNAudioRecorderDelegate>
+@interface ViewController()
 
 @property (nonatomic ,strong) QNAudioRecorder *audioRecorder;
 @property (weak) IBOutlet NSTextField *volumeText;
@@ -30,27 +30,28 @@
 }
 
 - (IBAction)startBtn:(id)sender {
-    self.audioRecorder = [QNAudioRecorder start];
-    if (self.audioRecorder) {
-        self.audioRecorder.delegate = self;
-        NSLog(@"开始录制");
-    }else{
-        NSLog(@"开始录制失败");
-    }
+      _audioRecorder = start();
+//    self.audioRecorder = [QNAudioRecorder start];
+//    if (self.audioRecorder) {
+//        self.audioRecorder.delegate = self;
+//        NSLog(@"开始录制");
+//    }else{
+//        NSLog(@"开始录制失败");
+//    }
 }
 
 - (IBAction)stopBtn:(id)sender {
-    BOOL ret = [self.audioRecorder stop];
-    if (ret) {
-        NSLog(@"停止录制");
-    }else{
-        NSLog(@"停止录制失败");
-    }
+//    BOOL ret = [self.audioRecorder stop];
+//    if (ret) {
+//        NSLog(@"停止录制");
+//    }else{
+//        NSLog(@"停止录制失败");
+//    }
 }
 
 
 #pragma mark - QNAudioRecorderDelegate
--(void)audioRecorder:(QNAudioRecorder *)audioReocrder onVolumeChanged:(double)volume{
-    self.volumeText.stringValue = [NSString stringWithFormat:@"%lf",volume];
-}
+//-(void)audioRecorder:(QNAudioRecorder *)audioReocrder onVolumeChanged:(double)volume{
+//    self.volumeText.stringValue = [NSString stringWithFormat:@"%lf",volume];
+//}
 @end

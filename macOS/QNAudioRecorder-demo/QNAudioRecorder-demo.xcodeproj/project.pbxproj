@@ -10,7 +10,7 @@
 		2C0CB2E02760C65100C6A4F0 /* QNAudioRecorder_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0CB2DE2760C64C00C6A4F0 /* QNAudioRecorder_macOS.framework */; };
 		2C0CB2E12760C65100C6A4F0 /* QNAudioRecorder_macOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0CB2DE2760C64C00C6A4F0 /* QNAudioRecorder_macOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2C5C3914275F50D80004904D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C3913275F50D80004904D /* AppDelegate.m */; };
-		2C5C3917275F50D80004904D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C3916275F50D80004904D /* ViewController.m */; };
+		2C5C3917275F50D80004904D /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C3916275F50D80004904D /* ViewController.mm */; };
 		2C5C3919275F50DC0004904D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C3918275F50DC0004904D /* Assets.xcassets */; };
 		2C5C391C275F50DC0004904D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C5C391A275F50DC0004904D /* Main.storyboard */; };
 		2C5C391F275F50DC0004904D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5C391E275F50DC0004904D /* main.m */; };
@@ -36,7 +36,7 @@
 		2C5C3912275F50D80004904D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C5C3913275F50D80004904D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2C5C3915275F50D80004904D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2C5C3916275F50D80004904D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2C5C3916275F50D80004904D /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		2C5C3918275F50DC0004904D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C5C391B275F50DC0004904D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C5C391D275F50DC0004904D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 				2C5C3912275F50D80004904D /* AppDelegate.h */,
 				2C5C3913275F50D80004904D /* AppDelegate.m */,
 				2C5C3915275F50D80004904D /* ViewController.h */,
-				2C5C3916275F50D80004904D /* ViewController.m */,
+				2C5C3916275F50D80004904D /* ViewController.mm */,
 				2C5C3918275F50DC0004904D /* Assets.xcassets */,
 				2C5C391A275F50DC0004904D /* Main.storyboard */,
 				2C5C391D275F50DC0004904D /* Info.plist */,
@@ -166,7 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C5C3917275F50D80004904D /* ViewController.m in Sources */,
+				2C5C3917275F50D80004904D /* ViewController.mm in Sources */,
 				2C5C391F275F50DC0004904D /* main.m in Sources */,
 				2C5C3914275F50D80004904D /* AppDelegate.m in Sources */,
 			);
