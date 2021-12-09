@@ -38,10 +38,12 @@ void volumeChanged(double volume){
 }
 
 - (IBAction)startBtn:(id)sender {
-      
-    self.audioRecorder = QNAudioRecorderStart(volumeChanged);
-    if (self.audioRecorder) {
-        NSLog(@"开始录制");
+    void *recorder = QNAudioRecorderStart(volumeChanged);
+    if (recorder) {
+        self.audioRecorder = recorder;
+        if (self.audioRecorder) {
+            NSLog(@"开始录制");
+        }
     }else{
         NSLog(@"开始录制失败");
     }
