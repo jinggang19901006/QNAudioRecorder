@@ -7,24 +7,9 @@
 
 #import <Foundation/Foundation.h>
 
-@class QNAudioRecorderObjc;
-
-@protocol QNAudioRecorderObjcDelegate <NSObject>
-
-/**
- * 录制音量回调
- *
- * @param audioReocrder QNAudioRecorderObjc实例
- *
- * @param volume 录制音频音量 . 范围 [0 - 1.0]
- */
-- (void)audioRecorder:(QNAudioRecorderObjc *)audioReocrder onVolumeChanged:(double)volume;
-
-@end
+typedef void (*onVolumeChanged)(double volume);
 
 @interface QNAudioRecorderObjc : NSObject
-
-@property (nonatomic, weak) id<QNAudioRecorderObjcDelegate> delegate;
 
 /**
  * 开始录制
@@ -32,7 +17,7 @@
  * @return QNAudioRecorderObjc   注：成功时返回QNAudioRecorderObjc实例;
  *                           失败时返回nil
  */
-+ (QNAudioRecorderObjc *)start;
++ (QNAudioRecorderObjc *)start:(void(*)(double volume))callBack;
 
 /**
  * 停止录制

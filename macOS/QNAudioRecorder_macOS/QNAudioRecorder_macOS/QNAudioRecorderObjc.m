@@ -18,6 +18,7 @@ static inline void run_on_main_queue(void (^block)(void)) {
 }
 
 @interface QNAudioRecorderObjc()
+@property (nonatomic, assign) onVolumeChanged onVolumeChangedCallBack;
 @property (nonatomic, assign) AudioComponentInstance componentInstance;
 @property (nonatomic, assign) AudioStreamBasicDescription asbd;
 @property (nonatomic, strong) dispatch_source_t timer;
@@ -33,7 +34,8 @@ static inline void run_on_main_queue(void (^block)(void)) {
 static QNAudioRecorderObjc *_sharedInstance;
 
 #pragma mark - public
-+(QNAudioRecorderObjc*) start{
+
++ (QNAudioRecorderObjc *)start:(void(*)(double volume))callBack{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedInstance = [[QNAudioRecorderObjc alloc] init];
@@ -43,6 +45,7 @@ static QNAudioRecorderObjc *_sharedInstance;
     if (status != noErr) {
         return nil;
     }
+    _sharedInstance.onVolumeChangedCallBack = callBack;
     return _sharedInstance;
 }
 
@@ -188,8 +191,12 @@ static OSStatus RecordCallback(void *inRefCon,
     __weak typeof(self) weakSelf = self;
     dispatch_source_set_event_handler(self.timer, ^{
         run_on_main_queue(^{
-            if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(audioRecorder:onVolumeChanged:)]) {
-                [weakSelf.delegate audioRecorder:weakSelf onVolumeChanged:weakSelf.volume];
+//            NSLog(@"weakSelf.volume == %f",weakSelf.volume);
+//            if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(onVolumeChanged:)]) {
+//                [weakSelf.delegate onVolumeChanged:weakSelf.volume];
+//            }
+            if (weakSelf.onVolumeChangedCallBack) {
+                weakSelf.onVolumeChangedCallBack(weakSelf.volume);
             }
         });
     });

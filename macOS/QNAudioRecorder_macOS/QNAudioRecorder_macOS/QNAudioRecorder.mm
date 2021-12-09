@@ -8,32 +8,15 @@
 #import "QNAudioRecorder.h"
 #import "QNAudioRecorderObjc.h"
 
-QNAudioRecorderObjc *audioRecorderObjc;
+extern "C" {
+    void* QNAudioRecorderStart(QNAudioVolumeCallback onVolumeChanged)
+    {
+        QNAudioRecorderObjc *recorderObjc = [QNAudioRecorderObjc start:onVolumeChanged];
+        return (__bridge void *)recorderObjc;
+    }
 
-static QNAudioRecorder *_recorder;
-
-@interface QNAudioRecorder()
-
-//@property (nonatomic , strong) QNAudioRecorderObjc *recorder;
-
-@end
-
-@implementation QNAudioRecorder
-
-
-+ (QNAudioRecorder *)start{
-    audioRecorderObjc = [QNAudioRecorderObjc start];
-    return  _recorder;
+    bool QNAudioRecorderStop(void *opaque){
+        QNAudioRecorderObjc *recorder = (__bridge QNAudioRecorderObjc *)opaque;
+        return [recorder stop];
+    }
 }
-
-- (BOOL)stop{
-    return [audioRecorderObjc stop];
-}
-
-
-extern "C" QNAudioRecorder* start(){
-    NSLog(@"extern c void getInstance");
-    return [QNAudioRecorder start];
-    
-}
-@end
